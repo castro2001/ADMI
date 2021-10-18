@@ -1,0 +1,82 @@
+1. cuando no te corre el codigo en php puede ser estar mal escrito le lenguaje entiene m y n como 2 variable diferente
+
+toda variable debe ser unica nunca puede ver 2 variables con el mismo nombre porque ocasiona error
+29- creamos para eliminar una imagen cuando el usuario la queire leimirar 
+
+31 mostrar en crud
+
+32 activar y desacitvar ususario <?php echo($accion==="seleccionar")?"disabled":""; ?>este code php  
+33 tambien puede haber errores de comparacion ej 0000=== es == o !=
+
+
+ //<?php if ($txtPdf!=""){ ?>
+                    <img class="img-thumbnail rounded" src="../../img/<?php echo $txtImagen; ?>"  width="100" alt="" srcset="">
+                <?php }?> -->
+
+                
+<?php
+$nombrePdf= $_FILES['archivo']['name'];
+$tipoPdf= $_FILES['archivo']['type'];
+$tamañoPdf= $_FILES['archivo']['size'];
+$rutaPdf= $_FILES['archivo']['tmp_name'];
+$destino =  'archivos/'.$nombrePdf;
+
+if (isset($_POST['txtPdf'])) {
+      if ($nombrePdf !="" ) {
+            if (copy($rutaPdf, $destino )) {
+                  echo " subiste un archivo";
+            }else{
+                echo "error";
+            }
+    }
+
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Redirigiendo hacia atrás
+//header("location:productos.php");
+
+// $nombrePdf= $_FILES['archivo']['name'];
+// $tipoPdf= $_FILES['archivo']['type'];
+// $tamañoPdf= $_FILES['archivo']['size'];
+// $rutaPdf= $_FILES['archivo']['tmp_name'];
+// $destino =  'archivos/'.$nombrePdf;
+
+
+
+
+        <?php
+           
+           foreach($archivos as $key)
+
+            for ($i=2; $i<count($archivos); $i++)
+            {$num++;
+           ?>    
+  
+      <td><?php echo $archivos[$i]; ?></td>
+      <td><a title="Descargar Archivo" href="subidas/<?php echo $archivos[$i]; ?>" download="<?php echo $archivos[$i]; ?>" style="color: blue; font-size:18px;"> <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> </a></td>
+      <td><a title="Eliminar Archivo" href="Eliminar.php?name=subidas/<?php echo $archivos[$i]; ?>" style="color: red; font-size:18px;" onclick="return confirm('Esta seguro de eliminar el archivo?');"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a>
+    </td>
+ <?php }?> 
+
+
+
+
+
+
+
+
+
